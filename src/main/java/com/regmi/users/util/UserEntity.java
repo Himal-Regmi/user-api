@@ -1,4 +1,4 @@
-package com.regmi.userApi.util;
+package com.regmi.users.util;
 
 import javax.persistence.*;
 
@@ -19,15 +19,13 @@ public class UserEntity {
     @Column(name = "role")
     private String role;
 
-
-
     public UserEntity() {
     }
 
-    public UserEntity(String role, String password, String username) {
-        this.role = role;
-        this.password = password;
+    public UserEntity( String username,String password,String role) {
         this.username = username;
+        this.password = password;
+        this.role = role;
     }
 
     public int getId() {
@@ -51,7 +49,6 @@ public class UserEntity {
     }
 
     public void setPassword(String password) {
-        //String pass= passwordEncoder(password);
         this.password = password;
     }
 

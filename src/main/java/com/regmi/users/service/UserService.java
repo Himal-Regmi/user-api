@@ -1,6 +1,6 @@
-package com.regmi.userApi.service;
+package com.regmi.users.service;
 
-import com.regmi.userApi.util.UserEntity;
+import com.regmi.users.util.UserEntity;
 
 public interface UserService {
     public UserEntity getUserById(int id);
@@ -8,4 +8,6 @@ public interface UserService {
     public void saveUser(UserEntity user);
 
     public void deleteUser(int id);
+
+    UserEntity getUserByName(String name);
 }

@@ -1,8 +1,8 @@
-package com.regmi.userApi.controller;
+package com.regmi.users.controller;
 
-import com.regmi.userApi.exception.UserNotFoundException;
-import com.regmi.userApi.service.UserService;
-import com.regmi.userApi.util.UserEntity;
+import com.regmi.users.exception.UserNotFoundException;
+import com.regmi.users.service.UserService;
+import com.regmi.users.util.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +47,8 @@ public class userController {
         }
         userService.deleteUser(id);
     }
-
+    @GetMapping("/query")
+    public UserEntity getUserByName(@RequestParam (value="name")String name){
+        return userService.getUserByName(name);
+    }
 }

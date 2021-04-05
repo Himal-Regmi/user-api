@@ -1,11 +1,14 @@
-package com.regmi.userApi.dao;
+package com.regmi.users.dao;
 
-import com.regmi.userApi.util.UserEntity;
+import com.regmi.users.util.UserEntity;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+
+
 @Repository
 public class UserDaoImpl implements UserDao{
     EntityManager entityManager;
@@ -36,10 +39,15 @@ public class UserDaoImpl implements UserDao{
     @Override
     public UserEntity getUserByName(String name) {
         Session session= entityManager.unwrap(Session.class);
-        UserEntity userEntity= session.get(UserEntity.class,name);
-        System.out.println(userEntity.getUsername());
-        return userEntity;
 
-        //return (UserEntity) session.createQuery("from UserEntity where name = \""+name+"\"") ;
+        Query<UserEntity> query= session.createQuery("select from UserEntity where username =:uname",UserEntity.class) ;
+        query.setParameter("uname",name);
+        UserEntity userEntity=new UserEntity();
+        try{
+            userEntity=query.getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return userEntity;
     }
 }

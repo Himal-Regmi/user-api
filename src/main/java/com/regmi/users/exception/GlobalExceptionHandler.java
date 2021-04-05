@@ -1,4 +1,4 @@
-package com.regmi.userApi.exception;
+package com.regmi.users.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

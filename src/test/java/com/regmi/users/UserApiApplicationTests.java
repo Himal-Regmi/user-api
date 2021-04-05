@@ -1,4 +1,4 @@
-package com.regmi.userApi;
+package com.regmi.users;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

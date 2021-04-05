@@ -1,6 +1,6 @@
-package com.regmi.userApi.dao;
+package com.regmi.users.dao;
 
-import com.regmi.userApi.util.UserEntity;
+import com.regmi.users.util.UserEntity;
 
 public interface UserDao {
     public UserEntity getUserById(int id);

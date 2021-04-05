@@ -1,4 +1,4 @@
-package com.regmi.userApi.exception;
+package com.regmi.users.exception;
 
 public class ErrorResponse {
     private int status;
